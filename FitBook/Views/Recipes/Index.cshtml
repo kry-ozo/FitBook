@@ -1,0 +1,29 @@
+﻿@model List<Recipe>
+
+<a class="btn btn-primary" asp-controller="Recipes" asp-action="Add">Add Your Own Recipe</a>
+<div class="row">
+
+
+@foreach(Recipe obj in Model){
+    <div class="col-4">
+    <div class="card" style="width: 18rem;">
+        
+        <div class="card-body">
+            <h5 class="card-title">@obj.Name</h5>
+            <p class="card-text">@obj.Description</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Protein: @obj.Protein g</li>
+            <li class="list-group-item">Fats: @obj.Fats g</li>
+            <li class="list-group-item">Carbs: @obj.Carbs g</li>
+        </ul>
+        <div class="card-body">
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+        </div>
+    </div>
+    </div>
+}
+
+</div>
+
