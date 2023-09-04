@@ -17,10 +17,10 @@
             <li class="list-group-item">Fats: @obj.Fats g</li>
             <li class="list-group-item">Carbs: @obj.Carbs g</li>
         </ul>
-        <div class="card-body">
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
-        </div>
+        <form class="card-body" method="post">
+            <a asp-action="Recipe" asp-controller="Recipes" asp-route-id="@obj.Id" class="card-link">Card link</a>
+            <button class="btn btn-danger" type="submit" asp-route-id="@obj.Id"> Delete</button>
+        </form>
     </div>
     </div>
 }

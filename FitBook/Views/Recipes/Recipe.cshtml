@@ -1,0 +1,19 @@
+﻿@model Recipe
+
+<<div class="col-4">
+    <div class="card" style="width: 18rem;">
+
+        <div class="card-body">
+            <h5 class="card-title">@Model.Name</h5>
+            <p class="card-text">@Model.Description</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Protein: @Model.Protein g</li>
+            <li class="list-group-item">Fats: @Model.Fats g</li>
+            <li class="list-group-item">Carbs: @Model.Carbs g</li>
+        </ul>
+        
+            <a class="btn btn-primary"  asp-route-id="@Model.Id" asp-action="Edit" asp-controller="Recipes"> Edit</a>
+        
+    </div>
+</div>

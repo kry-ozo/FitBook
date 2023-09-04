@@ -1,0 +1,46 @@
+﻿@model Recipe
+
+<h1>Edit Your Recipe</h1>
+<form method="post">
+    <div>
+        <label asp-for="Name">
+
+        </label>
+        <input asp-for="Name" />
+    </div>
+    <div>
+        <label asp-for="Protein">
+
+        </label>
+        <input asp-for="Protein" />
+    </div>
+    <div>
+        <label asp-for="Fats">
+
+        </label>
+        <input asp-for="Fats" />
+    </div>
+    <div>
+        <label asp-for="Carbs">
+
+        </label>
+        <input asp-for="Carbs" />
+    </div>
+    <div>
+        <label asp-for="Description">
+
+        </label>
+        <textarea asp-for="Description">
+
+        </textarea>
+    </div>
+    <div>
+        <label asp-for="Steps">
+
+        </label>
+        <textarea asp-for="Steps">
+
+        </textarea>
+    </div>
+    <button class=" btn btn-primary" type="submit">Submit</button>
+</form>

@@ -15,6 +15,14 @@ namespace FitBook.Controllers
             List<Recipe> objListRecipe = _db.Recipes.ToList();
             return View(objListRecipe);
         }
+        [HttpPost]
+        public IActionResult Index(int? id)
+        {
+            Recipe? objToDelete = _db.Recipes.Find(id);
+            _db.Recipes.Remove(objToDelete);
+            _db.SaveChanges();
+            return RedirectToAction("Index");   
+        }
         public IActionResult Add()
         {
             return View();
@@ -23,6 +31,25 @@ namespace FitBook.Controllers
         public IActionResult Add(Recipe obj)
         {
             _db.Recipes.Add(obj);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Recipe(Recipe obj)
+        {
+            Recipe? objToSee = _db.Recipes.Find(obj.Id);
+            return View(objToSee);
+        }
+        public IActionResult Edit(int? id)
+        {
+            Recipe? objToEdit=_db.Recipes.Find(id);
+            return View(objToEdit);
+        }
+        [HttpPost]
+        public IActionResult Edit(Recipe obj)
+        {
+            
+            _db.Recipes.Update(obj);
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
