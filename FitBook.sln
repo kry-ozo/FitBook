@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitBook", "FitBook\FitBook.csproj", "{BDFCEF58-BCB0-4460-A851-FEDEAA11403C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FitBook", "FitBook\FitBook.csproj", "{BDFCEF58-BCB0-4460-A851-FEDEAA11403C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FitBook.DataAccess", "FitBook.DataAccess\FitBook.DataAccess.csproj", "{2CF1F8CC-13D0-4DC8-A51C-F7D64A6F1321}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FitBook.Models", "Fitbook.Models\FitBook.Models.csproj", "{DAA045B8-42B4-4DC3-A872-CB2E50FC60AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{BDFCEF58-BCB0-4460-A851-FEDEAA11403C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BDFCEF58-BCB0-4460-A851-FEDEAA11403C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BDFCEF58-BCB0-4460-A851-FEDEAA11403C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CF1F8CC-13D0-4DC8-A51C-F7D64A6F1321}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CF1F8CC-13D0-4DC8-A51C-F7D64A6F1321}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CF1F8CC-13D0-4DC8-A51C-F7D64A6F1321}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CF1F8CC-13D0-4DC8-A51C-F7D64A6F1321}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAA045B8-42B4-4DC3-A872-CB2E50FC60AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAA045B8-42B4-4DC3-A872-CB2E50FC60AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAA045B8-42B4-4DC3-A872-CB2E50FC60AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAA045B8-42B4-4DC3-A872-CB2E50FC60AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

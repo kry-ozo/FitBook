@@ -1,6 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using FitBook.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace FitBook.Models
+namespace FitBook.DataAccess
 {
     public class ApplicationDbContext : DbContext
     {
@@ -10,11 +11,11 @@ namespace FitBook.Models
         }
 
         public DbSet<Recipe> Recipes { get; set; }
-        
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            
+
 
 
             modelBuilder.Entity<Recipe>().HasData(

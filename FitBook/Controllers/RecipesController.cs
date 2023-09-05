@@ -1,6 +1,8 @@
-﻿using FitBook.Models;
+﻿using FitBook.DataAccess;
+using FitBook.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.Data.Entity;
+using System.Data;
+
 
 namespace FitBook.Controllers
 {

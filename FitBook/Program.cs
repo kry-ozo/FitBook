@@ -1,5 +1,7 @@
+using FitBook.DataAccess;
 using FitBook.Models;
 using Microsoft.EntityFrameworkCore;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
