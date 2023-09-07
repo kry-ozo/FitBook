@@ -8,11 +8,17 @@ using System.Threading.Tasks;
 
 namespace FitBook.DataAccess.Repository
 {
-    internal class RecipeRepo : Repository<Recipe>, IRecipeRepo
+    public class RecipeRepo : Repository<Recipe>, IRecipeRepo
     {
-        public void Update(Recipe recipe)
+        private ApplicationDbContext _db;
+        public RecipeRepo(ApplicationDbContext db) : base(db)
         {
-            throw new NotImplementedException();
+            _db = db;
+        }
+
+        public void Update(Recipe obj)
+        {
+            _db.Recipes.Update(obj);
         }
     }
 }

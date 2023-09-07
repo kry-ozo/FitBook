@@ -7,13 +7,21 @@ using System.Threading.Tasks;
 
 namespace FitBook.DataAccess.Repository
 {
-    internal class UnitOfWork : IUnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
-        public IRecipeRepo RecipeRepo => throw new NotImplementedException();
+        private ApplicationDbContext _db;
+        public IRecipeRepo RecipeRepo { get; private set; }
+        public UnitOfWork(ApplicationDbContext db)
+        {
+            _db = db;
+            RecipeRepo = new RecipeRepo(_db);
+        }
+
+
 
         public void Save()
         {
-            throw new NotImplementedException();
+            _db.SaveChanges();
         }
     }
 }

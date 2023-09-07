@@ -1,4 +1,5 @@
 ﻿using FitBook.DataAccess;
+using FitBook.DataAccess.Repository.IRepository;
 using FitBook.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
@@ -8,21 +9,21 @@ namespace FitBook.Controllers
 {
     public class RecipesController : Controller
     {
-        private readonly ApplicationDbContext _db;
-        public RecipesController(ApplicationDbContext db) {
-            _db = db;
+        private readonly IUnitOfWork _unitOfWork;
+        public RecipesController(IUnitOfWork unitOfWork) {
+            _unitOfWork = unitOfWork;
         }
         public IActionResult Index()
         {
-            List<Recipe> objListRecipe = _db.Recipes.ToList();
+            List<Recipe> objListRecipe = (List<Recipe>)_unitOfWork.RecipeRepo.GetAll();
             return View(objListRecipe);
         }
         [HttpPost]
         public IActionResult Index(int? id)
         {
-            Recipe? objToDelete = _db.Recipes.Find(id);
-            _db.Recipes.Remove(objToDelete);
-            _db.SaveChanges();
+            Recipe? objToDelete = _unitOfWork.RecipeRepo.Get(u=>u.Id ==id);
+            _unitOfWork.RecipeRepo.Remove(objToDelete);
+            _unitOfWork.Save();
             return RedirectToAction("Index");   
         }
         public IActionResult Add()
@@ -32,27 +33,27 @@ namespace FitBook.Controllers
         [HttpPost]
         public IActionResult Add(Recipe obj)
         {
-            _db.Recipes.Add(obj);
-            _db.SaveChanges();
+            _unitOfWork.RecipeRepo.Add(obj);
+            _unitOfWork.Save();
             return RedirectToAction("Index");
         }
 
         public IActionResult Recipe(Recipe obj)
         {
-            Recipe? objToSee = _db.Recipes.Find(obj.Id);
+            Recipe? objToSee = _unitOfWork.RecipeRepo.Get(u=>u.Id == obj.Id);
             return View(objToSee);
         }
         public IActionResult Edit(int? id)
         {
-            Recipe? objToEdit=_db.Recipes.Find(id);
+            Recipe? objToEdit=_unitOfWork.RecipeRepo.Get(u=> u.Id==id);
             return View(objToEdit);
         }
         [HttpPost]
         public IActionResult Edit(Recipe obj)
         {
             
-            _db.Recipes.Update(obj);
-            _db.SaveChanges();
+            _unitOfWork.RecipeRepo.Update(obj);
+            _unitOfWork.Save();
             return RedirectToAction("Index");
         }
     }
