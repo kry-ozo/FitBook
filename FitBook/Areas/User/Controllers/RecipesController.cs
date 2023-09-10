@@ -5,12 +5,14 @@ using Microsoft.AspNetCore.Mvc;
 using System.Data;
 
 
-namespace FitBook.Controllers
+namespace FitBook.Areas.User.Controllers
 {
+    [Area("User")]
     public class RecipesController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
-        public RecipesController(IUnitOfWork unitOfWork) {
+        public RecipesController(IUnitOfWork unitOfWork)
+        {
             _unitOfWork = unitOfWork;
         }
         public IActionResult Index()
@@ -21,10 +23,10 @@ namespace FitBook.Controllers
         [HttpPost]
         public IActionResult Index(int? id)
         {
-            Recipe? objToDelete = _unitOfWork.RecipeRepo.Get(u=>u.Id ==id);
+            Recipe? objToDelete = _unitOfWork.RecipeRepo.Get(u => u.Id == id);
             _unitOfWork.RecipeRepo.Remove(objToDelete);
             _unitOfWork.Save();
-            return RedirectToAction("Index");   
+            return RedirectToAction("Index");
         }
         public IActionResult Add()
         {
@@ -40,18 +42,18 @@ namespace FitBook.Controllers
 
         public IActionResult Recipe(Recipe obj)
         {
-            Recipe? objToSee = _unitOfWork.RecipeRepo.Get(u=>u.Id == obj.Id);
+            Recipe? objToSee = _unitOfWork.RecipeRepo.Get(u => u.Id == obj.Id);
             return View(objToSee);
         }
         public IActionResult Edit(int? id)
         {
-            Recipe? objToEdit=_unitOfWork.RecipeRepo.Get(u=> u.Id==id);
+            Recipe? objToEdit = _unitOfWork.RecipeRepo.Get(u => u.Id == id);
             return View(objToEdit);
         }
         [HttpPost]
         public IActionResult Edit(Recipe obj)
         {
-            
+
             _unitOfWork.RecipeRepo.Update(obj);
             _unitOfWork.Save();
             return RedirectToAction("Index");
