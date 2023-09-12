@@ -13,7 +13,7 @@ namespace FitBook.DataAccess
         }
 
         public DbSet<Recipe> Recipes { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DbSet<AppUser> Users { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

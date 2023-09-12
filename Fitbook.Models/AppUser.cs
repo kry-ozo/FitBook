@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FitBook.Models
 {
-    public class User: IdentityUser
+    public class AppUser: IdentityUser
     {
         [Required]
         public  string Name { get; set; }
