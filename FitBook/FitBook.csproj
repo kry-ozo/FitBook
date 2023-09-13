@@ -25,6 +25,7 @@
   <ItemGroup>
     <ProjectReference Include="..\FitBook.DataAccess\FitBook.DataAccess.csproj" />
     <ProjectReference Include="..\Fitbook.Models\FitBook.Models.csproj" />
+    <ProjectReference Include="..\FitBook.Utility\FitBook.Utility.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -19,12 +19,14 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using FitBook.Models;
+using FitBook.Utility;
 
 namespace FitBook.Areas.Identity.Pages.Account
 {
     public class RegisterModel : PageModel
     {
         private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly IUserStore<IdentityUser> _userStore;
         private readonly IUserEmailStore<IdentityUser> _emailStore;
@@ -33,11 +35,13 @@ namespace FitBook.Areas.Identity.Pages.Account
 
         public RegisterModel(
             UserManager<IdentityUser> userManager,
+            RoleManager<IdentityRole> roleManager,
             IUserStore<IdentityUser> userStore,
             SignInManager<IdentityUser> signInManager,
             ILogger<RegisterModel> logger,
             IEmailSender emailSender)
         {
+            _roleManager = roleManager;
             _userManager = userManager;
             _userStore = userStore;
             _emailStore = GetEmailStore();
@@ -103,6 +107,14 @@ namespace FitBook.Areas.Identity.Pages.Account
 
         public async Task OnGetAsync(string returnUrl = null)
         {
+            if (!_roleManager.RoleExistsAsync(SD.Role_User_Cust).GetAwaiter().GetResult())
+            {
+                _roleManager.CreateAsync(new IdentityRole(SD.Role_User_Cust)).GetAwaiter().GetResult();
+                _roleManager.CreateAsync(new IdentityRole(SD.Role_User_Comp)).GetAwaiter().GetResult();
+                _roleManager.CreateAsync(new IdentityRole(SD.Role_Admin)).GetAwaiter().GetResult();
+                _roleManager.CreateAsync(new IdentityRole(SD.Role_Employee)).GetAwaiter().GetResult();
+            }
+
             ReturnUrl = returnUrl;
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
@@ -155,11 +167,11 @@ namespace FitBook.Areas.Identity.Pages.Account
             return Page();
         }
 
-        private User CreateUser()
+        private AppUser CreateUser()
         {
             try
             {
-                return Activator.CreateInstance<User>();
+                return Activator.CreateInstance<AppUser>();
             }
             catch
             {

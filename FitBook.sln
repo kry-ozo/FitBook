@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FitBook.DataAccess", "FitBo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FitBook.Models", "Fitbook.Models\FitBook.Models.csproj", "{DAA045B8-42B4-4DC3-A872-CB2E50FC60AE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitBook.Utility", "FitBook.Utility\FitBook.Utility.csproj", "{EF3F7E5D-52F5-4FB9-B34C-1AF2E05E0CF0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{DAA045B8-42B4-4DC3-A872-CB2E50FC60AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DAA045B8-42B4-4DC3-A872-CB2E50FC60AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DAA045B8-42B4-4DC3-A872-CB2E50FC60AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF3F7E5D-52F5-4FB9-B34C-1AF2E05E0CF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF3F7E5D-52F5-4FB9-B34C-1AF2E05E0CF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF3F7E5D-52F5-4FB9-B34C-1AF2E05E0CF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF3F7E5D-52F5-4FB9-B34C-1AF2E05E0CF0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
